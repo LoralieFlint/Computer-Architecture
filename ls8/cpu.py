@@ -139,12 +139,12 @@ class CPU:
         self.alu("ADD", reg_a, reg_b)
         self.pc += 3
 
-    def push_fun(self, reg_a, reg_b):
+    def new_push(self, reg_a, reg_b):
         self.reg[self.sp] -= 1
         self.ram[self.reg[self.sp]] = self.reg[reg_a]
         self.pc += 2
 
-    def pop_fun(self, reg_a, reg_b):
+    def new_pop(self, reg_a, reg_b):
         self.reg[reg_a] = self.ram[self.reg[self.sp]]
         self.reg[self.sp] += 1
         self.pc += 2
